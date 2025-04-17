@@ -3,7 +3,7 @@ name: Docker Image Scan
 on: [push]
 
 env:
-  USER: "aiboosts"
+  USER: "RichardDrochner"
 
 jobs:
   trivy_scan:
@@ -20,7 +20,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}  # Use the GitHub username (actor)
-          password: ${{ secrets.GHCR_TOKEN }}  # Use the secret token
+          password: ${{ secrets.HEYBOT_SECRET }}  # Use the secret token
 
       # Build the Docker image
       - name: Build the hello-docker Docker image
