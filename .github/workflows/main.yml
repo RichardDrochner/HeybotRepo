@@ -25,7 +25,7 @@ jobs:
       # Build the Docker image
       - name: Build the hello-docker Docker image
         run: |
-          docker build -t ghcr.io/$USER/heybot:latest .
+          docker build -t ghcr.io/$USER/HeybotRepo:latest .
 
       # Install Trivy (Specific version v0.60.1)
       - name: Install Trivy
@@ -36,14 +36,14 @@ jobs:
       # Scan the Docker image for vulnerabilities
       - name: Scan Docker image for vulnerabilities
         run: |
-          trivy image --severity HIGH,CRITICAL --format json --output trivy_output.json ghcr.io/$USER/heybot:latest
+          trivy image --severity HIGH,CRITICAL --format json --output trivy_output.json ghcr.io/$USER/HeybotRepo:latest
       
       # Build the new Docker image with trivy_output.json
       - name: Build the new Docker image with trivy_output.json
         run: |
-          docker build -t ghcr.io/$USER/heybot-with-trivy-output:latest -f Dockerfile.trivy-analysis .
+          docker build -t ghcr.io/$USER/HeybotRepo-with-trivy-output:latest -f Dockerfile.trivy-analysis .
       
       # Push the Docker image to GitHub Container Registry
       - name: Push the Docker image to GitHub Container Registry
         run: |
-          docker push ghcr.io/$USER/heybot-with-trivy-output:latest
+          docker push ghcr.io/$USER/HeybotRepo-with-trivy-output:latest
