@@ -41,9 +41,9 @@ jobs:
       # Build the new Docker image with trivy_output.json
       - name: Build the new Docker image with trivy_output.json
         run: |
-          docker build -t ghcr.io/$USER/heybotrepo-with-trivy-output:1 -f Dockerfile.trivy-analysis .
+          docker build -t ghcr.io/$USER/heybotrepo-with-trivy-output:latest -f Dockerfile.trivy-analysis .
       
       # Push the Docker image to GitHub Container Registry
       - name: Push the Docker image to GitHub Container Registry
         run: |
-          docker push ghcr.io/$USER/heybotrepo-with-trivy-output:1
+          docker push ghcr.io/$USER/heybotrepo-with-trivy-output:latest
