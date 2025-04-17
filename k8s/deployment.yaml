@@ -17,5 +17,6 @@ spec:
         - name: heybot
           image: ghcr.io/richarddrochner/heybotrepo-with-trivy-output:latest
           command: ["/bin/bash", "-c", "while true; do sleep 3600; done"]
+          imagePullPolicy: Always
       imagePullSecrets:
         - name: heybotsecret  # Das ImagePullSecret, das du vorher erstellt hast
