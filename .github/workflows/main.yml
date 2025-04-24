@@ -47,3 +47,5 @@ jobs:
       - name: Push the Docker image to GitHub Container Registry
         run: |
           docker push ghcr.io/$USER/heybotrepo-with-trivy-output:latest
+
+
